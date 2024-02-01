@@ -1,0 +1,258 @@
+/* Tar innholdet (.right) fra litt unna høyre til helt ved siden av bildet */
+@keyframes coolright {
+    0% {right: -250px;}
+    100% {right: 0;}
+}
+
+/* Ubrukt, skulle bli brukt for tekst men dessverre for rar */
+@keyframes move {
+    0% {transform: translateY(300px);}
+    100% {transform: translateY(0px);}
+}
+
+/* Ubrukt */
+@keyframes goodbye {
+    0% {right: 0;}
+    100% {right: -400px}
+}
+
+/* Ubrukt? */
+@keyframes coolfill {
+    0% {right: 0;width: 0;}
+    100% {right: 0; width: 75%;}
+}
+
+/* Animasjonen tar bakgrunnen fra litt unna fra venstre til midten av siden */
+@keyframes moveBackground {
+    0% {background-position-x: -900px;}
+    100% {background-position-x: 0px;}
+}
+
+/* Animasjonen går loddrett. Brukes på mobil */
+@keyframes moveBackgroundVertical {
+    0% {transform: translateY(400px);}
+    100% {transform: translateY(0);}
+}
+
+/* Variabler */
+:root {
+    --background-image: url("/img/alexander7.JPG");
+    --background-color: #040406;
+    --second-background-color: rgba(15,15,15);
+}
+
+body {
+    margin: 0;
+    /* Sett bakgrunn */
+    background: var(--background-image) no-repeat;
+    background-color: var(--background-color);
+
+    background-blend-mode: lighten;
+    background-size: 100%;
+    animation: none 1.3s 1;
+    animation-timing-function: ease-in-out;
+    background-position-x: -300px;
+
+    color-scheme: dark;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--second-background-color);
+
+    color: #fff;
+    position: absolute;
+    align-self: center;
+    padding: 1rem;
+    width: 40%;
+    right: 0;
+    animation: coolright 1.3s 1;
+    animation-timing-function: ease-in-out;
+
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+
+    height: max-content;
+}
+
+
+.right h1 {
+    margin-bottom: 0;
+}
+
+.another-container {
+    height: 50rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+h2 {
+    margin-top: 2.5rem;
+}
+
+.ting-jeg-har-gjort {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    overflow-x: scroll;
+}
+
+.ting-som-ble-gjort {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: rgba(35,35,35);
+    border: 1px solid #cdcdcd;
+    border-radius: 4px;
+    padding: 0.5rem;
+    max-width: 50%;
+}
+
+.ting-som-ble-gjort > * {
+    margin-left: 0.2rem;
+}
+
+.ting-etter-bildet {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ting-som-ble-gjort h3 {
+    margin-top: 0.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.ting-img {
+    margin-top: 0.2rem;
+    border-radius: 4px;
+}
+
+.circle-thing {
+    padding: 0.2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 4rem;
+    color: #cdcdcd;
+    border: 1px solid #cdcdcd;
+}
+
+.ting-jeg-kan {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.en-ting-jeg-kan {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ting-explanation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Det går ikke å putte en stil på <progress> i Chromium-baserte nettlesere - bu! */
+.ting-progress {
+    border-radius: 100px;
+    background-color: rgba(35,35,35);
+    border: 1px solid #cdcdcd;
+    width: 100%;
+}
+
+.ting-progress::-webkit-progress-bar, .ting-progress::-moz-progress-bar, .ting-progress::-webkit-progress-value {
+    background-color: aqua;
+    border-right: 1px solid aqua;
+    border-top-right-radius: 999px;
+    border-bottom-right-radius: 999px;
+}
+
+a {
+    color: #fff;
+    text-underline-offset: 5px;
+    transition: all .25s;
+}
+
+a:hover {
+    color: aqua;
+}
+
+.kontakt {
+    margin-bottom: 1rem;
+}
+
+/* På mobil, ikke bruk animasjon og gjør "right" sånn at den vises mest*/
+
+@media screen and (max-width: 640px) {
+    /* Gir en fin parallax effekt (https://www.w3schools.com/howto/howto_css_parallax.asp) */
+    body, html {
+        height: 100%;
+    }
+
+    .parallax {
+        background-image: url("/img/alexander7.JPG");
+
+        height: 40%;
+
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    main {
+        /* Skru av backdrop (bakgrunnsuklarhet) */
+        background-color: #151515;
+        /* Skru av animasjonen! Å ha det komme fra langt unna høyre til hit er litt rart */
+        animation: none;
+        /* Fiks høyde */
+        height: max-content;
+        width: 92%;
+        /* Skru av border (ikke noe linje på venstre) */
+        border: none;
+        /* Skru på border igjen, men kun for toppen. */
+        border-top: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    main > * {
+        /* Flytt inn tekst. */
+        animation: move 1.5s 1;
+    }
+
+    body {
+        background-image: none;
+    }
+
+    .another-container {
+        height: 100%;
+        overflow-x: initial;
+        overflow-y: initial;
+    }
+
+    /* Gjør sånn at ting jeg har gjort blir vist som loddrett */
+    .ting-jeg-har-gjort {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* Gjør ting som ble gjort (et prosjekt) til normal størrelse */
+    .ting-som-ble-gjort {
+        max-width: initial;
+    }
+}
+
+/* For tilgjenglighet, skru av animasjoner hvis brukeren ikke tåler animasjoner (prefers-reduced-motion) */
+@media (prefers-reduced-motion) {
+    main {
+        animation: none !important;
+    }
+    body {
+        animation: none !important;
+    }
+}

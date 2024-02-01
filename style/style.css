@@ -1,44 +1,76 @@
 /* Tar innholdet (.right) fra litt unna høyre til helt ved siden av bildet */
 @keyframes coolright {
-    0% {right: -250px;}
-    100% {right: 0;}
+    0% {
+        right: -250px;
+    }
+
+    100% {
+        right: 0;
+    }
 }
 
 /* Ubrukt, skulle bli brukt for tekst men dessverre for rar */
 @keyframes move {
-    0% {transform: translateY(300px);}
-    100% {transform: translateY(0px);}
+    0% {
+        transform: translateY(300px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 /* Ubrukt */
 @keyframes goodbye {
-    0% {right: 0;}
-    100% {right: -400px}
+    0% {
+        right: 0;
+    }
+
+    100% {
+        right: -400px
+    }
 }
 
 /* Ubrukt? */
 @keyframes coolfill {
-    0% {right: 0;width: 0;}
-    100% {right: 0; width: 75%;}
+    0% {
+        right: 0;
+        width: 0;
+    }
+
+    100% {
+        right: 0;
+        width: 75%;
+    }
 }
 
 /* Animasjonen tar bakgrunnen fra litt unna fra venstre til midten av siden */
 @keyframes moveBackground {
-    0% {background-position-x: -900px;}
-    100% {background-position-x: 0px;}
+    0% {
+        background-position-x: -900px;
+    }
+
+    100% {
+        background-position-x: 0px;
+    }
 }
 
 /* Animasjonen går loddrett. Brukes på mobil */
 @keyframes moveBackgroundVertical {
-    0% {transform: translateY(400px);}
-    100% {transform: translateY(0);}
+    0% {
+        transform: translateY(400px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 /* Variabler */
 :root {
     --background-image: url("/img/alexander7.JPG");
     --background-color: #040406;
-    --second-background-color: rgba(15,15,15);
+    --second-background-color: rgba(15, 15, 15);
 }
 
 body {
@@ -104,14 +136,14 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    background-color: rgba(35,35,35);
+    background-color: rgba(35, 35, 35);
     border: 1px solid #cdcdcd;
     border-radius: 4px;
     padding: 0.5rem;
     max-width: 50%;
 }
 
-.ting-som-ble-gjort > * {
+.ting-som-ble-gjort>* {
     margin-left: 0.2rem;
 }
 
@@ -161,12 +193,14 @@ h2 {
 /* Det går ikke å putte en stil på <progress> i Chromium-baserte nettlesere - bu! */
 .ting-progress {
     border-radius: 100px;
-    background-color: rgba(35,35,35);
+    background-color: rgba(35, 35, 35);
     border: 1px solid #cdcdcd;
     width: 100%;
 }
 
-.ting-progress::-webkit-progress-bar, .ting-progress::-moz-progress-bar, .ting-progress::-webkit-progress-value {
+.ting-progress::-webkit-progress-bar,
+.ting-progress::-moz-progress-bar,
+.ting-progress::-webkit-progress-value {
     background-color: aqua;
     border-right: 1px solid aqua;
     border-top-right-radius: 999px;
@@ -190,8 +224,10 @@ a:hover {
 /* På mobil, ikke bruk animasjon og gjør "right" sånn at den vises mest*/
 
 @media screen and (max-width: 640px) {
+
     /* Gir en fin parallax effekt (https://www.w3schools.com/howto/howto_css_parallax.asp) */
-    body, html {
+    body,
+    html {
         height: 100%;
     }
 
@@ -220,7 +256,7 @@ a:hover {
         border-top: 2px solid rgba(255, 255, 255, 0.1);
     }
 
-    main > * {
+    main>* {
         /* Flytt inn tekst. */
         animation: move 1.5s 1;
     }
@@ -249,9 +285,8 @@ a:hover {
 
 /* For tilgjenglighet, skru av animasjoner hvis brukeren ikke tåler animasjoner (prefers-reduced-motion) */
 @media (prefers-reduced-motion) {
-    main {
-        animation: none !important;
-    }
+    main,
+    main>*,
     body {
         animation: none !important;
     }
